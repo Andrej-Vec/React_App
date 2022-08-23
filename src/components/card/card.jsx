@@ -6,7 +6,8 @@ const Card = ({props, OnSearch}) => {
 
     return (
         <li className="trip-card">
-            <img src={image} alt="trip image" />
+            <Link to={BookID}> <img src={image} alt="trip image" className="trip__img" /></Link>
+           
             <div className="trip-card__content">
                 <div className="trip-info">
                     <h3 className="trip-info__title">{title}</h3>
@@ -20,7 +21,7 @@ const Card = ({props, OnSearch}) => {
                     <strong className="trip-price__value">{price} $</strong>
                 </div>
             </div>
-            <Link to={BookID} onClick={OnSearch} className="button">Discover a trip</Link>
+            <Link to={BookID} /* onClick={OnSearch} */ className="button">Discover a trip</Link>
         </li>
     )
 }

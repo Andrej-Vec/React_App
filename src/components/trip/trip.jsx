@@ -57,10 +57,10 @@ const Trip = ({Data, ForSearch}) => {
                             </label>
                             <label className="trip-popup__input input">
                                 <span className="input__heading">Number of guests</span>
-                                <input name="guests" type="number" min="1" max="10" value="1" className="date"  required />
+                               {/*  <input name="guests" type="number" min="1" max="10" value="1" className="date"  required /> */}
                             </label>
                             <span className="trip-popup__total">
-                                Total: <output class="trip-popup__total-value">4000$</output>
+                                Total: <output className="trip-popup__total-value">4000$</output>
                             </span>
                             <button className="button" type="submit">Book a trip</button>
                         </div>

@@ -45,6 +45,8 @@
     width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
+    
+   
   }
   
   .trip__img {

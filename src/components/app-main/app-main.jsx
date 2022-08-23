@@ -18,18 +18,18 @@ const AppMain = ({Data, Search}) => {
 
     const filterDays =  filterCards.filter((card) => {
         switch(optionDays) {
-            case "0_x_5": return card.duration > 0 && card.duration < 5  ; break;
-            case "5_x_10":return card.duration > 5 && card.duration < 10 ;break;
-            case "10_x": return card.duration > 10 ; break;
+            case "0_x_5": return card.duration > 0 && card.duration < 5; 
+            case "5_x_10":return card.duration > 5 && card.duration < 10;
+            case "10_x": return card.duration > 10;
             default: return true;
         }
     }) 
 
     const filterLevel =  filterDays.filter((card) => {
         switch(optionLevel) {
-            case "easy": return card.level == "easy" ; break;
-            case "moderate":return card.level == "moderate"  ;break;
-            case "difficult": return card.level == "difficult"  ; break;
+            case "easy": return card.level === "easy";
+            case "moderate":return card.level === "moderate";
+            case "difficult": return card.level === "difficult";
             default: return true;
         }
     }) 
@@ -53,7 +53,7 @@ const AppMain = ({Data, Search}) => {
                 </label>
                 <label className="select">
                     <span className="visually-hidden">Search by duration</span>
-                    <select onClick={(event) => {setOptionDays(event.target.value)}} name="duration">
+                    <select onChange ={(event) => {setOptionDays(event.target.value)}} name="duration">
                         <option value="">duration</option>
                         <option value="0_x_5">&lt; 5 days</option>
                         <option value="5_x_10">&lt; 10 days</option>
@@ -62,7 +62,7 @@ const AppMain = ({Data, Search}) => {
                 </label>
                 <label className="select">
                     <span className="visually-hidden">Search by level</span>
-                    <select onClick={(event) => {setOptionLevel(event.target.value)}} name="level">
+                    <select onChange={(event) => {setOptionLevel(event.target.value)}} name="level">
                         <option value="">level</option>
                         <option value="easy">easy</option>
                         <option value="moderate">moderate</option>

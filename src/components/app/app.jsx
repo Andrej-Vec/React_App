@@ -7,6 +7,7 @@ import SignUp from '../sign-up/sign-up';
 import SignIn from '../sign-in/sign-in';
 import Trip from '../trip/trip';
 import Bookings from '../bookings/bookings';
+import { useState } from 'react';
 
 function App() {
     const data = [
@@ -83,21 +84,19 @@ function App() {
       })
     };
 
-
-    
+   
       return (
           <div className="app">
-              <AppHeader></AppHeader>
+              <AppHeader/>
               <Routes>
                   <Route path = "/" element = { <AppMain Data = {data} Search={search}></AppMain>}> </Route>
-                  <Route path = "/sign-up" element = {<SignUp/>}> </Route>
-                  <Route path = "/sign-in" element = {<SignIn/>}> </Route>
-                  <Route path = "/trip/:tripId" element = {<Trip ForSearch = {forSearch}  Data = {data}/>}> </Route>
+                  <Route path = "/sign-up" element = {<SignUp/>} > </Route>
+                  <Route path = "/sign-in" element = {<SignIn/>} > </Route>
+                  <Route path = '/trip/:tripId' element = {<Trip ForSearch = {forSearch}  Data = {data}/>}> </Route>
                   <Route path = "/bookings" element = {<Bookings/>}> </Route>
                   <Route path = "*" element = { <AppMain></AppMain>}> </Route>
               </Routes>
-            
-              <AppFooter></AppFooter>
+              <AppFooter/>
           </div>
       );
 }

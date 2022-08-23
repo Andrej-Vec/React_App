@@ -24,7 +24,7 @@ class SignUp extends Component {
         } else {
             document.querySelector('.sign-up-form').submit();
         }
-       
+        
         
     }
     
@@ -40,7 +40,7 @@ class SignUp extends Component {
                         <input name="full-name" type="text" required />
                     </label>
                     <label className="trip-popup__input input">
-                        <span className="input__heading">Email</span>
+                        <span className="input__heading" >Email</span>
                         <input name="email" type="email" required />
                     </label>
                     <label className="trip-popup__input input">

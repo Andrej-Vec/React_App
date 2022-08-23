@@ -12,6 +12,8 @@ class SignIn extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    
+
     handleChange(event) {
         this.setState({valuePas: event.target.value});
     }
@@ -24,6 +26,9 @@ class SignIn extends Component{
             document.querySelector('.sign-in-form').submit();
         } 
     }
+
+   
+
     render() {
         return (
             <main className="sign-in-page">
