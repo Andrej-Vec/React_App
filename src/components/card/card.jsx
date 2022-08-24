@@ -1,12 +1,18 @@
 import {Link} from "react-router-dom";
 
-const Card = ({props, OnSearch}) => {
+const Card = ({props, onSearch}) => {
     const {id, title, description, level, duration, price, image} = props;
     const BookID = `/trip/:trip${id}`;
 
+    function handleSearch() {
+        onSearch(props);
+        //console.log(id);
+    }
+
+
     return (
         <li className="trip-card">
-            <Link to={BookID}> <img src={image} alt="trip image" className="trip__img" /></Link>
+            <Link to={BookID}  onClick = {handleSearch}> <img src={image} alt="trip image" className="trip__img" /></Link>
            
             <div className="trip-card__content">
                 <div className="trip-info">
@@ -21,7 +27,7 @@ const Card = ({props, OnSearch}) => {
                     <strong className="trip-price__value">{price} $</strong>
                 </div>
             </div>
-            <Link to={BookID} /* onClick={OnSearch} */ className="button">Discover a trip</Link>
+            <Link to={BookID} /* onClick={OnSearch} */ onClick = {handleSearch} className="button">Discover a trip</Link>
         </li>
     )
 }

@@ -5,7 +5,7 @@ import iceland from "../../asserts/images/iceland.jpg";
 import Card from "../card/card";
 import { useState } from 'react';
 
-const AppMain = ({Data, Search}) => {
+const AppMain = ({Data, searchSet}) => {
     
     const [value, setValue] = useState('');
     const [optionDays, setOptionDays] = useState('');
@@ -34,14 +34,21 @@ const AppMain = ({Data, Search}) => {
         }
     }) 
 
+    
+
+    const handleSearch = (props) => {
+      searchSet(props);
+    }
+    
 
 
     let list = filterLevel.map(item => {
-        return <Card props = {item} OnSearch = {() => Search(item.id)} key={item.id}></Card>;
+        return <Card props = {item} onSearch = {handleSearch} key={item.id}></Card>;
     })
 
 
     return (
+       
         <main>
             <h1 className="visually-hidden">Travel App</h1>
             <section className="trips-filter">

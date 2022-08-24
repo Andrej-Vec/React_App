@@ -75,7 +75,7 @@ function App() {
 
 
     let forSearch;
-    const search = (id) => {
+    const searchs = (id) => {
       data.forEach(item => {
         if(id == item.id) {
           forSearch = item.id;
@@ -84,15 +84,17 @@ function App() {
       })
     };
 
+    const [search, searchSet] = useState('');
+
    
       return (
           <div className="app">
               <AppHeader/>
               <Routes>
-                  <Route path = "/" element = { <AppMain Data = {data} Search={search}></AppMain>}> </Route>
+                  <Route path = "/" element = { <AppMain Data = {data} searchSet={searchSet}></AppMain>}> </Route>
                   <Route path = "/sign-up" element = {<SignUp/>} > </Route>
                   <Route path = "/sign-in" element = {<SignIn/>} > </Route>
-                  <Route path = '/trip/:tripId' element = {<Trip ForSearch = {forSearch}  Data = {data}/>}> </Route>
+                  <Route path = '/trip/:trip' element = {<Trip  searchSet={searchSet} search={search}  Data = {data}/>}> </Route>
                   <Route path = "/bookings" element = {<Bookings/>}> </Route>
                   <Route path = "*" element = { <AppMain></AppMain>}> </Route>
               </Routes>
