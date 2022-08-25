@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import BookingCard from "../booking-card/booking-card";
 
 
@@ -10,19 +11,20 @@ const Bookings = () => {
 
    
 
-    const bookcards = [
+    let [bookcards, setBookcards] = useState([
         { title: "Iceland", guests: 2, date: '13.07.2022', totalPrice: 9590, id: 1},
         { title: "Scotland", guests: 1, date: '13.07.2022', totalPrice: 2145,  id: 2},
-        { title: "Norway", guests: 1, date: '13.07.2022', totalPrice: 2690, id: 5}
-    ];
+        { title: "Norway", guests: 1, date: '13.07.2022', totalPrice: 2690, id: 3}
+    ]);
 
     const handleDelete = (id) => {
-        console.log(id)
-      /*   bookcards = bookcards.map(item => {
-            if(item.id === id) {
-
+        bookcards = bookcards.filter(item => {
+            if(item.id !== id) {
+                return item
             }
-        }) */
+        }) 
+        setBookcards(bookcards);
+        
     }
 
 

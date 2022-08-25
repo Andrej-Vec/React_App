@@ -121,6 +121,11 @@
     font-size: var(--font-size-400);
   }
 
+  .trip-popup__input {
+    margin-top: 18px;
+   
+  }
+
 
   
 .trip-info {
@@ -138,6 +143,7 @@
   }
   
   .trip-info__content {
+    margin: 10px 0 20px;
     display: flex;
     font-weight: 300;
   }
