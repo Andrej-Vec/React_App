@@ -1,19 +1,9 @@
-import { useState } from "react";
 
 
 const BookingCard = ({props, onDelete}) => {
 
-    //const {title, guests, date, totalPrice} = props;
-
-    const [title, setTitle] = useState(props.title);
-    const [guests, setGuests] = useState(props.guests);
-    const [date, setDate] = useState(props.date);
-    const [totalPrice, setTotalPrice] = useState(props.totalPrice);
-    const [id, setId] = useState(props.id);
-    
-    
-   
-    
+    const {title, guests, date, totalPrice} = props;
+       
     return (
         <li className="booking">
             <h3 className="booking__title">{title}</h3>

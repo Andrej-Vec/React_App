@@ -47,7 +47,7 @@ class SignIn extends Component{
                 </form>
                 <span>
                     Already have an account?
-                    <Link to="/sign-up" className="sign-in-form__link">Sign Up</Link>
+                    <Link to="/sign-up" className="sign-in-form__link"> Sign Up</Link>
                 </span>
             </main>
          )

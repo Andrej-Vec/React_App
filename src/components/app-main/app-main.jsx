@@ -1,7 +1,4 @@
 import "./app-main.css";
-import {Link} from "react-router-dom";
-import iceland from "../../asserts/images/iceland.jpg";
-//import SearcgPanel from "../search-panel/search-panel";
 import Card from "../card/card";
 import { useState } from 'react';
 

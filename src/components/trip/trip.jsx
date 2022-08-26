@@ -4,10 +4,11 @@ import { useState } from "react";
 
 
 
-const Trip = ({ Data, search, searchSet }) => {
+const Trip = ({ search, OnSend }) => {
 
     const [sumPrice, setSumPrice] = useState(search.price);
     const [valuebtn, setValuebtn] = useState(1);
+    const [date, setDate] = useState('');
 
     const handleHidden = () => {
         document.querySelector('.trip-hidden').classList.toggle('hidden');
@@ -28,12 +29,26 @@ const Trip = ({ Data, search, searchSet }) => {
         }
     }
 
+    const handleChangeDate = (e) => {
+        setDate(e.target.value);
+    }
+
+    const handleSend = (e) => {
+        if(date) {
+            OnSend(search.title, sumPrice, valuebtn, date)
+        } else {
+            alert('Enter date');
+             e.preventDefault(); 
+
+        }
+    }
+
     return (
         <>
             <main className="trip-page">
                 <h1 className="visually-hidden">Travel App</h1>
                 <div className="trip">
-                    <img src={search.image} className="trip__img" alt="trip image" />
+                    <img src={search.image} className="trip__img" alt="country" />
                     <div className="trip__content">
                         <div className="trip-info">
                             <h3 className="trip-info__title">{search.title}</h3>
@@ -66,7 +81,7 @@ const Trip = ({ Data, search, searchSet }) => {
                             </div>
                             <label className="trip-popup__input input">
                                 <span className="input__heading">Date</span>
-                                <input className="date" type="date" required />
+                                <input className="date" onChange={(e) => handleChangeDate(e)}  value={date} type="date" required />
                             </label>
                             <label className="trip-popup__input input">
                                 <span className="input__heading">Number of guests</span>
@@ -75,7 +90,7 @@ const Trip = ({ Data, search, searchSet }) => {
                             <span className="trip-popup__total">
                                 Total: <output className="trip-popup__total-value">{sumPrice} $</output>
                             </span>
-                            <Link to="/bookings" className="button" type="submit">Book a trip</Link>
+                            <Link to="/bookings" className="button" onClick={(e) => handleSend(e)}  type="submit">Book a trip</Link>
                         </div>
                     </form>
                 </div>

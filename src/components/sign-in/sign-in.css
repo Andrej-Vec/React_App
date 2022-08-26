@@ -25,6 +25,7 @@
 
 .sign-up-form__link,
 .sign-in-form__link {
+  margin-left: 6px;
   color: var(--color-blue-200);
   transition: 0.1s color ease;
 }

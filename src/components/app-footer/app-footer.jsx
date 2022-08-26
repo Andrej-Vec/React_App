@@ -5,11 +5,13 @@ const AppFooter = () => {
     return (
         <footer className="footer">
             <span className="footer__text">
-                from <a className="footer__link" href="https://binary-studio.com">binary studio</a> with
+                Link to my<a target="_blank" className="footer__link" rel="noopener noreferrer" href="https://github.com/Andrej-Vec">GitHub</a> 
                 <img className="footer__icon" src={heart} alt="heart icon" />
             </span>
         </footer>
     );
 }
+
+
 
 export default AppFooter;

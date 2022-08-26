@@ -48,7 +48,7 @@ class SignUp extends Component {
                         <input value={this.state.valuePas} onChange={this.handleChange}  name="password" type="password" required/>
 
                     </label>
-                <button onClick={this.handleSubmit} className="button" type="submit">Sign Up</button>
+                <button onClick={this.handleSubmit} className="button" type="submit"> Sign Up</button>
                 </form>
               
                 <span>

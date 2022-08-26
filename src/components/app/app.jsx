@@ -2,7 +2,7 @@ import './app.css';
 import AppHeader from '../app-header/app-header';
 import AppFooter from '../app-footer/app-footer';
 import AppMain from '../app-main/app-main';
-import {Routes, Route, Link} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import SignUp from '../sign-up/sign-up';
 import SignIn from '../sign-in/sign-in';
 import Trip from '../trip/trip';
@@ -73,18 +73,22 @@ function App() {
         }
       ];
 
-
-    let forSearch;
-    const searchs = (id) => {
-      data.forEach(item => {
-        if(id == item.id) {
-          forSearch = item.id;
-         
-        }
-      })
-    };
+    let [bookcards, setBookcards] = useState([
+      { title: "Iceland", guests: 2, date: '13.07.2022', totalPrice: 9590, id: 0},
+      { title: "Scotland", guests: 1, date: '13.07.2022', totalPrice: 2145,  id: 1},
+      { title: "Norway", guests: 1, date: '13.07.2022', totalPrice: 2690, id: 2}
+  ]);
 
     const [search, searchSet] = useState('');
+
+    const handleSend = (title, sumPrice, valuebtn, date) => {
+
+      const oldBookcaed = bookcards.slice();
+      const newBookcaed = { title: title, guests: valuebtn, date: date, totalPrice: sumPrice, id: bookcards.length + 1};
+      oldBookcaed.push(newBookcaed)
+      setBookcards(oldBookcaed);
+
+    }
 
    
       return (
@@ -94,8 +98,8 @@ function App() {
                   <Route path = "/" element = { <AppMain Data = {data} searchSet={searchSet}></AppMain>}> </Route>
                   <Route path = "/sign-up" element = {<SignUp/>} > </Route>
                   <Route path = "/sign-in" element = {<SignIn/>} > </Route>
-                  <Route path = '/trip/:trip' element = {<Trip  searchSet={searchSet} search={search}  Data = {data}/>}> </Route>
-                  <Route path = "/bookings" element = {<Bookings/>}> </Route>
+                  <Route path = '/trip/:trip' element = {<Trip search={search} OnSend = {handleSend}/>}> </Route>
+                  <Route path = "/bookings" element = {<Bookings bookcards = {bookcards} setBookcards = {setBookcards}/>}> </Route>
                   <Route path = "*" element = { <AppMain></AppMain>}> </Route>
               </Routes>
               <AppFooter/>
